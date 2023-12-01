@@ -26,3 +26,13 @@ trait IERC20 {
    #[external]
    fn approve(spender: ContractAddress, amount: u256);
 }
+
+
+
+#[view]
+fn get_username(
+        _contract_address: ContractAddress, user_address: ContractAddress
+        ) -> felt252 {
+    IENSContractDispatcher {contract_address: _contract_address }.get_name(user_address)
+}
+;
